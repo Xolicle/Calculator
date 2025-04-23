@@ -9,6 +9,7 @@ let clear = document.querySelector("#clear");
 let equal = document.querySelector("#equal");
 let backspace = document.querySelector(".backspace");
 let display = document.querySelector(".display");
+let percentage = document.querySelector("#percentage");
 
 numBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -30,6 +31,10 @@ clear.addEventListener("click", () => {
   currentValue = "";
   previousValue = "";
   operator = "";
+});
+percentage.addEventListener("click", () => {
+  display.value = display.value / 100;
+  console.log(display.value);
 });
 
 backspace.addEventListener("click", () => {
