@@ -8,19 +8,24 @@ body {
   align-content: center;
 }
 .container {
-  border: 1px solid red;
+  border: 5px solid #2d3b56;
   width: 340px;
   padding: 10px;
   margin: auto;
+  border-radius: 20px;
+  position: relative;
 }
 .display {
-  width: 320px;
+  width: 310px;
   height: 70px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
+  margin-top: 20px;
   caret-color: transparent;
   text-align: right;
-  font-size: 24px;
+  font-size: 30px;
   padding: 10px;
+  border: none;
+  border-radius: 10px;
 }
 .buttons {
   display: flex;
@@ -71,6 +76,17 @@ body {
 .numbers {
   background-color: #f1f3f4;
   color: #5e6a74;
+}
+.container::before {
+  content: "";
+  width: 120px;
+  height: 20px;
+  background-color: #2d3b56;
+  position: absolute;
+  top: -3px;
+  left: 113px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px ***;

@@ -10,6 +10,7 @@ let equal = document.querySelector("#equal");
 let backspace = document.querySelector(".backspace");
 let display = document.querySelector(".display");
 let percentage = document.querySelector("#percentage");
+let sqRoot = document.querySelector("#sqRoot");
 
 numBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -22,8 +23,8 @@ operatorBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     operator = btn.innerHTML;
     operation(operator);
-    console.log("operator " + operator);
-    console.log(typeof operator);
+    // console.log("operator " + operator);
+    // console.log(typeof operator);
   });
 });
 clear.addEventListener("click", () => {
@@ -34,39 +35,54 @@ clear.addEventListener("click", () => {
 });
 percentage.addEventListener("click", () => {
   display.value = display.value / 100;
-  console.log(display.value);
+  // console.log(display.value);
 });
 
 backspace.addEventListener("click", () => {
   displayValue = display.value;
+  // console.log(displayValue);
+
   let elem = displayValue[displayValue.length - 1];
+  console.log("lst " + elem);
   displayValue = displayValue.replace(elem, "");
   currentValue = currentValue.replace(elem, "");
   display.value = displayValue;
+  // del();
 });
-
+// const del = () => {
+//   console.log("length " + displayValue.length);
+//   console.log(displayValue);
+// };
 equal.addEventListener("click", () => {
   let prev = Number(previousValue);
   let cur = Number(currentValue);
   let answer = operate(prev, operator, cur);
-  console.log("answer " + answer);
+  // console.log("answer " + answer);
   display.value = answer;
-  currentValue = "";
+  currentValue = answer;
   previousValue = "";
   operator = "";
 });
+
+sqRoot.addEventListener("click", () => {
+  let num = Number(display.value);
+  let answer = squareRoot(num);
+  display.value = answer;
+  // console.log(answer);
+});
 function appendNumber(num) {
   currentValue += num;
-  display.value = `${previousValue} ${operator} ${currentValue}`;
+  display.value = `${previousValue}${operator}${currentValue}`;
   // console.log("value " + currentValue);
-  console.log("display value" + display.value);
-  console.log("display length " + display.value.trim().length);
-  console.log(typeof display.value);
+  // console.log("display value" + display.value);
+  // console.log("display length " + display.value.trim().length);
+  // console.log(typeof display.value);
 }
 function operation(op) {
   operator = op;
   previousValue = currentValue;
   currentValue = "";
+  console.log("operation " + previousValue);
   // currentValue += operator;
   display.value = `${previousValue} ${operator}`;
 }
@@ -89,4 +105,7 @@ function operate(num, operator, anotherNum) {
     console.log("Error");
   }
   return result;
+}
+function squareRoot(num) {
+  return Math.sqrt(num);
 }

@@ -1,3 +1,5 @@
 # Calculator
+
 Odin Project to learn DOM manipulation and flexbox layout
-<br>Square root, brackets and +/- buttons are not functioning
+<br>Brackets and +/- buttons are not functioning
+<br>Backspace doesn't work properly
